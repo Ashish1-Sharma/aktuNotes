@@ -32,9 +32,6 @@ const Footer = () => {
               <li>
                 <a href="/search" className="hover:text-white transition-colors">Search Notes</a>
               </li>
-              <li>
-                <a href="/admin/login" className="hover:text-white transition-colors">Admin Login</a>
-              </li>
             </ul>
           </div>
 

@@ -1,42 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Cpu, 
-  Zap, 
-  Factory, 
-  Building2, 
-  FlaskConical, 
-  ChevronRight,
   BookOpen,
   TrendingUp,
   Users
 } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { getBranchesWithNotes, getDashboardStats } from '@/services/firestore';
 import type { Branch } from '@/types';
 import Navbar from '@/components/public/Navbar';
 import Footer from '@/components/public/Footer';
-
-// Branch icon mapping
-const branchIcons: Record<string, React.ElementType> = {
-  cse: Cpu,
-  ece: Zap,
-  me: Factory,
-  civil: Building2,
-  chemical: FlaskConical,
-  default: BookOpen
-};
-
-// Branch color mapping
-const branchColors: Record<string, string> = {
-  cse: 'from-blue-500 to-cyan-500',
-  ece: 'from-purple-500 to-pink-500',
-  me: 'from-orange-500 to-red-500',
-  civil: 'from-green-500 to-emerald-500',
-  chemical: 'from-yellow-500 to-orange-500',
-  default: 'from-gray-500 to-slate-500'
-};
 
 const HomePage = () => {
   const [branches, setBranches] = useState<Branch[]>([]);
@@ -93,7 +66,7 @@ const HomePage = () => {
                 </Button>
               </Link>
               <Link to="/search">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white text-blue-700 hover:bg-white/10">
                   Search Notes
                 </Button>
               </Link>
@@ -144,35 +117,15 @@ const HomePage = () => {
               <p className="text-gray-500 mt-2">Check back soon for new content!</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {branches.map((branch) => {
-                const Icon = branchIcons[branch.code] || branchIcons.default;
-                const gradient = branchColors[branch.code] || branchColors.default;
-                
                 return (
                   <Link key={branch.id} to={`/branch/${branch.id}`}>
-                    <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-0 shadow-md overflow-hidden">
-                      <div className={`h-2 bg-gradient-to-r ${gradient}`} />
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between">
-                          <div className={`p-3 rounded-xl bg-gradient-to-br ${gradient} text-white`}>
-                            <Icon className="h-6 w-6" />
-                          </div>
-                          <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-                        </div>
-                        <h3 className="mt-4 text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                          {branch.name}
-                        </h3>
-                        <p className="mt-1 text-sm text-gray-500 uppercase tracking-wide">
-                          {branch.code}
-                        </p>
-                        {branch.description && (
-                          <p className="mt-2 text-sm text-gray-600 line-clamp-2">
-                            {branch.description}
-                          </p>
-                        )}
-                      </CardContent>
-                    </Card>
+                    <div className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition-shadow duration-200 cursor-pointer border border-gray-200 hover:border-blue-500">
+                      <h3 className="text-center text-lg font-semibold text-gray-900">
+                        {branch.name}
+                      </h3>
+                    </div>
                   </Link>
                 );
               })}
@@ -181,43 +134,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How It Works
-            </h2>
-            <p className="text-lg text-gray-600">
-              Get access to study materials in just a few simple steps
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">1</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Select Your Branch</h3>
-              <p className="text-gray-600">Choose your engineering branch from the available options</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">2</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Pick Year & Semester</h3>
-              <p className="text-gray-600">Navigate to your current year and semester</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">3</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Download Notes</h3>
-              <p className="text-gray-600">Access and download notes for any subject instantly</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>

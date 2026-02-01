@@ -41,6 +41,7 @@ const BranchPage = () => {
     const fetchData = async () => {
       if (!branchId) return;
       
+      console.log(branchId);
       try {
         const [branchData, availableYears] = await Promise.all([
           getBranchById(branchId),
