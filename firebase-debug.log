@@ -1,0 +1,37 @@
+[debug] [2026-02-01T14:07:35.481Z] ----------------------------------------------------------------------
+[debug] [2026-02-01T14:07:35.488Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\wwwvi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-02-01T14:07:35.489Z] CLI Version:   14.6.0
+[debug] [2026-02-01T14:07:35.490Z] Platform:      win32
+[debug] [2026-02-01T14:07:35.490Z] Node Version:  v22.6.0
+[debug] [2026-02-01T14:07:35.491Z] Time:          Sun Feb 01 2026 19:37:35 GMT+0530 (India Standard Time)
+[debug] [2026-02-01T14:07:35.491Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-01T14:07:35.496Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-02-01T14:07:35.618Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-01T14:07:35.619Z] > authorizing via signed-in user (wwwviveksharma45@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\wwwvi\Downloads\Kimi_Agent_Firebase Notes Platform\app
+
+[debug] [2026-02-01T14:07:36.413Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-02-01T14:07:36.413Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-02-01T14:07:57.512Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\wwwvi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:520:28)
+    at Interface.emit (node:domain:488:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1125:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:264:20)
+    at ReadStream.emit (node:events:532:35)
+    at ReadStream.emit (node:domain:488:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
